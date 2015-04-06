@@ -27,13 +27,16 @@ def hex_rows(cells):
     print('\n'.join(''.join(row) for row in out))
 
 
-def main():
-    hex_rows([
+def gen_board(radius):
+    return [
         Hex(q, r)
-            for q in range(-3, 4)
-            for r in range(-3, 4)
-            if abs(q+r) < 4
-    ])
+            for q in range(-radius, 1+radius)
+            for r in range(-radius, 1+radius)
+            if abs(q+r) <= radius
+    ]
+
+def main():
+    hex_rows(gen_board(9))
 
 
 if __name__ == '__main__':
