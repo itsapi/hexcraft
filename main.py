@@ -21,7 +21,7 @@ def hex_rows(cells):
         y = cell.y - min_y
 
         out[y]  [x+1:x+3] = '__'
-        out[y+1][x:x+4]  = '/{:2}\\'.format(str(cell))
+        out[y+1][x:x+4]  = '/  \\'
         out[y+2][x:x+4] = '\\__/'
 
     print('\n'.join(''.join(row) for row in out))
@@ -34,6 +34,7 @@ def gen_board(radius):
             for r in range(-radius, 1+radius)
             if abs(q+r) <= radius
     ]
+
 
 def main():
     hex_rows(gen_board(9))

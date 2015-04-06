@@ -4,17 +4,12 @@ class Hex:
        (-1,  0), (-1, +1), ( 0, +1)
     ]
 
-    def __init__(self, q, r, name=None):
+    def __init__(self, q, r):
         self.q = q
         self.r = r
 
-        self.name = name
-
     def __repr__(self):
         return 'Hex({}, {})'.format(self.q, self.r)
-
-    def __str__(self):
-        return str(self.name) if self.name is not None else ''
 
     def __add__(self, other):
         return Hex(self.q+other.q, self.r+other.r)
@@ -23,25 +18,20 @@ class Hex:
         x = self.q
         z = self.r
         y = -x-z
-        return Cube(x, y, z, self.name)
+        return Cube(x, y, z)
 
     def neighbor(self, direction):
         return self + Hex(*self.directions[direction])
 
 
 class Cube:
-    def __init__(self, x, y, z, name=None):
+    def __init__(self, x, y, z):
         self.x = x
         self.y = y
         self.z = z
 
-        self.name = name
-
     def __repr__(self):
         return 'Cube({}, {}, {})'.format(self.x, self.y, self.z)
-
-    def __str__(self):
-        return str(self.name) if self.name is not None else ''
 
     def __add__(self, other):
         return Cube(self.x+other.x, self.y+other.y, self.z+other.z)
@@ -57,21 +47,16 @@ class Cube:
 
         x = q
         y = (not (q&1)) + (2 * r)
-        return Cart(x, y, self.name)
+        return Cart(x, y)
 
 
 class Cart:
-    def __init__(self, x, y, name=None):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 
-        self.name = name
-
     def __repr__(self):
         return 'Cart({}, {})'.format(self.x, self.y)
-
-    def __str__(self):
-        return str(self.name) if self.name is not None else ''
 
     def __add__(self, other):
         return Cart(self.x+other.x, self.y+other.y)
