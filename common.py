@@ -24,8 +24,8 @@ class Hex:
         return self + Hex(*self.directions[direction])
 
     def to_cart(self):
-        x = self.x
-        y = (not (self.x&1)) + (2 * int(self.z + (self.x + (self.x&1)) / 2))
+        x = self.q
+        y = (not (self.q&1)) + (2 * int(self.r + (self.q + (self.q&1)) / 2))
         return Cart(x, y)
 
 

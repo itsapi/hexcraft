@@ -3,7 +3,7 @@ from common import *
 
 def hex_rows(cells):
 
-    cart_cells = [cell.to_cube().to_cart() for cell in cells]
+    cart_cells = [cell.to_cart() for cell in cells]
 
     min_x = min(cart_cells, key=lambda c: c.x).x
     min_y = min(cart_cells, key=lambda c: c.y).y
@@ -20,9 +20,9 @@ def hex_rows(cells):
         x = (cell.x - min_x) * 3
         y = cell.y - min_y
 
-        out[y]  [x+1:x+3] = '__'
-        out[y+1][x:x+4]  = '/  \\'
-        out[y+2][x:x+4] = '\\__/'
+        out[y  ][x+1:x+3] =   '__'
+        out[y+1][x  :x+4] =  '/  \\'
+        out[y+2][x  :x+4] = '\\__/'
 
     print('\n'.join(''.join(row) for row in out))
 
