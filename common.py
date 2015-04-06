@@ -23,6 +23,11 @@ class Hex:
     def neighbor(self, direction):
         return self + Hex(*self.directions[direction])
 
+    def to_cart(self):
+        x = self.x
+        y = (not (self.x&1)) + (2 * int(self.z + (self.x + (self.x&1)) / 2))
+        return Cart(x, y)
+
 
 class Cube:
     def __init__(self, x, y, z):
