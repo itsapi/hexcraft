@@ -42,11 +42,8 @@ class Cube:
         return Hex(q, r)
 
     def to_cart(self):
-        q = self.x
-        r = int(self.z + (self.x + (self.x&1)) / 2)
-
-        x = q
-        y = (not (q&1)) + (2 * r)
+        x = self.x
+        y = (not (self.x&1)) + (2 * int(self.z + (self.x + (self.x&1)) / 2))
         return Cart(x, y)
 
 
