@@ -43,10 +43,10 @@ class Cube:
 
     def to_cart(self):
         q = self.x
-        r = int(self.z + (self.x + (self.x&1)) / 2)
+        r = int(self.z + (self.x + (self.x&1)))
 
         x = q
-        y = (not (q&1)) + (2 * r)
+        y = (not (q&1)) + (r)
         return Cart(x, y)
 
 
