@@ -10,8 +10,8 @@ def hex_rows(cells):
     max_x = max(cart_cells, key=lambda c: c.x).x
     max_y = max(cart_cells, key=lambda c: c.y).y
 
-    x_len = 4 + (6 * (1+max_x-min_x))
-    y_len = 2 + (1+max_y-min_y)
+    x_len = 3 * (1+max_x-min_x)
+    y_len = 3 + max_y-min_y
 
     out = [[' ' for x in range(x_len)] for y in range(y_len)]
 
