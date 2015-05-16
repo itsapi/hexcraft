@@ -2,10 +2,12 @@ from common import *
 
 
 KEY_MAP = {
-    'w': (2, -1),
-    's': (2, +1),
-    'a': (0, -1),
-    'd': (0, +1),
+    'd': [(0, +1)],
+    'q': [(0, -1)],
+    'e': [(0, +1), (2, -1)],
+    'a': [(0, -1), (2, +1)],
+    'w': [(2, -1)],
+    's': [(2, +1)]
 }
 
 
@@ -16,6 +18,7 @@ def get_dir(inp):
     for key in inp:
         if key in KEY_MAP:
             a = KEY_MAP[key]
-            d[a[0]] += a[1]
+            for axis in a:
+                d[axis[0]] += axis[1]
 
     return Cube(*d)
