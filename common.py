@@ -14,6 +14,9 @@ class Hex:
     def __add__(self, other):
         return Hex(self.q+other.q, self.r+other.r)
 
+    def __eq__(self, other):
+        return self.q == other.q and self.r == other.r
+
     def to_cube(self):
         x = self.q
         z = self.r
@@ -41,6 +44,9 @@ class Cube:
     def __add__(self, other):
         return Cube(self.x+other.x, self.y+other.y, self.z+other.z)
 
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y and self.z == other.z
+
     def to_hex(self):
         q = self.x
         r = self.z
@@ -62,3 +68,6 @@ class Cart:
 
     def __add__(self, other):
         return Cart(self.x+other.x, self.y+other.y)
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
